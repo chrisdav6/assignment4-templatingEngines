@@ -5,7 +5,7 @@ const router = express.Router();
 const users = [];
 
 router.get('/', (req, res, next) => {
-  res.render('index', { title: 'Homepage' });
+  res.render('index', { title: 'Homepage', path: '/' });
 });
 
 router.post('/', (req, res, next) => {

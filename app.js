@@ -20,7 +20,7 @@ app.use('/users', usersRoutes);
 
 //404 Page
 app.get('*', (req, res, next) => {
-  res.status(404).render('404', { title: 'Not Found' });
+  res.status(404).render('404', { title: 'Not Found', path: '' });
 });
 
 //Start Server

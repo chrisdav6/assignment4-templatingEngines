@@ -1,24 +1,25 @@
 <%- include('partials/header') %>
-<div class="d-flex align-items-center">
-  <h1>Users</h1>
-  <a class="btn btn-info ml-auto" href="/">Add Another User</a>
+<div class="container mt-5">
+  <div class="d-flex align-items-center">
+    <h1>Users</h1>
+    <a class="btn btn-info ml-auto" href="/">Add Another User</a>
+  </div>
+
+  <hr>
+
+  <% if(users.length > 0) { %>
+  <ul class="list-group">
+    <% users.forEach((user) => { %>
+    <li class="list-group-item d-flex"><%= user.user %>
+      <form class="form-inline ml-auto" action="/users/delete" method="POST">
+        <input type="text" class="deleteUser" name="deleteUser" hidden value="<%= user.user %>">
+        <button class="btn btn-danger btn-sm">Delete</button>
+      </form>
+    </li>
+    <% }); %>
+  </ul>
+  <% } else { %>
+  <h3>No current Users!</h3>
+  <% } %>
 </div>
-
-<hr>
-
-<% if(users.length > 0) { %>
-<ul class="list-group">
-  <% users.forEach((user) => { %>
-  <li class="list-group-item d-flex"><%= user.user %>
-    <form class="form-inline ml-auto" action="/users/delete" method="POST">
-      <input type="text" class="deleteUser" name="deleteUser" hidden value="<%= user.user %>">
-      <button class="btn btn-danger btn-sm">Delete</button>
-    </form>
-  </li>
-  <% }); %>
-</ul>
-<% } else { %>
-<h3>No current Users!</h3>
-<% } %>
-
 <%- include('partials/footer') %>

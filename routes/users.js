@@ -5,7 +5,7 @@ const router = express.Router();
 const users = require('../routes/index');
 
 router.get('/', (req, res, next) => {
-  res.render('users', { users: users.users, title: 'Users' });
+  res.render('users', { users: users.users, title: 'Users', path: '/users' });
 });
 
 router.post('/delete', (req, res, next) => {
