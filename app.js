@@ -18,6 +18,11 @@ app.set('view engine', 'ejs');
 app.use('/', indexRoutes.routes);
 app.use('/users', usersRoutes);
 
+//404 Page
+app.get('*', (req, res, next) => {
+  res.status(404).render('404', { title: 'Not Found' });
+});
+
 //Start Server
 app.listen(port, () => {
   console.log(`Server started on port number ${port}`);
