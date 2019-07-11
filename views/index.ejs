@@ -1,0 +1,11 @@
+<%- include('partials/header') %>
+<h1>Homepage</h1>
+<hr>
+<form class="addUser" action="/" method="POST">
+  <div class="form-group">
+    <label for="user">User:</label>
+    <input class="form-control" type="text" name="user" id="user" required>
+  </div>
+  <button class="btn btn-dark">Add User</button>
+</form>
+<%- include('partials/footer') %>
